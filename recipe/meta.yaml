@@ -1,5 +1,5 @@
 {% set name = "apav" %}
-{% set version = "1.2.1" %}
+{% set version = "1.3.0" %}
 
 
 package:
@@ -8,14 +8,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/APAV-{{ version }}.tar.gz
-  sha256: 3ea22ee021e13aa809db4cc3a319dad20a977f7e13a8f262ad2feb1c0486b5c3
+  sha256: 3f667bf250a48dfb8187f23eca63f50fe5fa2567de396689777d5778f3021335
 
 build:
   number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   script_env:
-      - QT_QPA_PLATFORM=offscreen
+    - QT_QPA_PLATFORM=offscreen
 
 requirements:
   host:
