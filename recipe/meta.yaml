@@ -22,6 +22,7 @@ requirements:
     - pip
     - python >=3.8
     - poetry
+    - cython
   run:
     - fast-histogram
     - lmfit >=1.0
