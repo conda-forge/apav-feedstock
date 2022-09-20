@@ -19,7 +19,7 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.8
+    - python
     - poetry
     - cython
   run:
@@ -32,7 +32,7 @@ requirements:
     - pyqtgraph >=0.11.0
     - pytest >=5
     - pytest-qt >=3
-    - python >=3.8
+    - python
     - tabulate
 
 test:
