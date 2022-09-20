@@ -17,6 +17,8 @@ build:
     - QT_QPA_PLATFORM=offscreen
 
 requirements:
+  build:
+    - {{ compiler('c') }}
   host:
     - pip
     - python
