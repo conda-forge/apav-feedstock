@@ -1,5 +1,5 @@
 {% set name = "apav" %}
-{% set version = "1.3.1" %}
+{% set version = "1.4.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/APAV-{{ version }}.tar.gz
-  sha256: d23c6f4c4d5cd688604a44777a03fb8b8b67bc8a9f3af6259d41d1d86f2300b5
+  sha256: ae26caf1908da04ab88cfa6f16532ad8cb09548c2c11de40d95703afbc4f45d6
 
 build:
   number: 0
