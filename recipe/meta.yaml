@@ -11,7 +11,7 @@ source:
   sha256: ae26caf1908da04ab88cfa6f16532ad8cb09548c2c11de40d95703afbc4f45d6
 
 build:
-  number: 3
+  number: 4
   script: {{ PYTHON }} -m pip install . -vv
   script_env:
     - QT_QPA_PLATFORM=offscreen
