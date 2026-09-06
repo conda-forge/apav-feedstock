@@ -1,0 +1,69 @@
+schema_version: 1
+
+context:
+  name: apav
+  version: "1.4.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/APAV-${{ version }}.tar.gz
+  sha256: ae26caf1908da04ab88cfa6f16532ad8cb09548c2c11de40d95703afbc4f45d6
+
+build:
+  number: 5
+  script:
+    env:
+      QT_QPA_PLATFORM: offscreen
+    content: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+    - if: osx
+      then: llvm-openmp
+    - if: linux
+      then: libgomp
+  host:
+    - pip
+    - python
+    - poetry
+    - cython
+  run:
+    - fast-histogram
+    - lmfit >=1.0
+    - numba
+    - numpy >=1.17
+    - periodictable
+    - pyqt >=5.11
+    - pyqtgraph >=0.11.0
+    - pytest >=5
+    - pytest-qt >=3
+    - python
+    - tabulate
+
+tests:
+  - python:
+      imports:
+        - apav
+        - apav.analysis
+      pip_check: true
+
+about:
+  license: GPL-3.0-or-later
+  license_file: LICENSE
+  summary: "APAV: Python analysis for atom probe tomography"
+  description: |
+    APAV (Atom Probe Analysis and Visualization) is a Python library
+    for the analysis and visualization of atom probe tomography
+    experiments
+  homepage: https://gitlab.com/jesseds/apav
+  repository: https://gitlab.com/jesseds/apav
+  documentation: https://apav.readthedocs.io/en/latest/
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
